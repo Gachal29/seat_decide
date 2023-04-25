@@ -84,6 +84,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
     ('js', BASE_DIR / 'js'),
+    ('assets', BASE_DIR / 'styles/dist/assets')
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
