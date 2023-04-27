@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="ja" data-theme="cupcake">
+<html lang="ja" data-theme="forest">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'assets/index.css' %}">
-    <title>Document</title>
+    <title>席決めアプリケーション</title>
 </head>
 <body>
+    {% block main %}
+    {% endblock %}
+
+    {% block footer %}{% endblock %}
 </body>
 </html>

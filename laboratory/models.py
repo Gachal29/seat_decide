@@ -42,7 +42,7 @@ class AffiliationLab(models.Model):
         return affiliation_lab
         
 
-    laboratory = models.OneToOneField(Laboratory, on_delete=models.CASCADE)
+    laboratory = models.ForeignKey(Laboratory, on_delete=models.CASCADE)
     
     isTeacher = models.BooleanField(verbose_name="教員", default=False)
     
