@@ -4,8 +4,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-#&e!6cn4%cm-amba050h9(9pj=iyqahj3j#gxxbc1_fh@)0$3y'
 DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1"]
-CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1", "4be2-122-211-245-82.ngrok-free.app"]
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1", "https://4be2-122-211-245-82.ngrok-free.app"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -79,6 +79,10 @@ LANGUAGE_CODE = 'ja'
 TIME_ZONE = 'Asia/Tokyo'
 USE_I18N = True
 USE_TZ = True
+
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/login/"
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'

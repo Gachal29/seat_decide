@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<div>
+<div class="text-center">
+    {% if laboratory.admin_user == user %}
+        <a class="btn btn-info btn-wide text-2xl my-4 mx-2" href="{% url '' %}">座席を決める</a>
+    {% endif %}
+
+    <a class="btn btn-success btn-wide text-2xl my-4 mx-2" href="{% url 'seat_confirm' %}">座席を確認する</a>
 </div>
 {% endblock %}

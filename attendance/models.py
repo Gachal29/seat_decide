@@ -3,6 +3,8 @@ from django.db import models
 from django.utils import timezone
 from laboratory.models import Laboratory
 
+from django.contrib.auth.models import User
+
 
 class Attendance(models.Model):
     """出席情報
@@ -38,3 +40,15 @@ class Attendance(models.Model):
     def __str__(self):
         attendance_member_num = len(json.loads(self.attendance_member))
         return f"{self.date}: {self.laboratory}, 出席{attendance_member_num}人"
+    
+
+class SeatPosition(models.Model):
+    attendance = models.ForeignKey(Attendance, on_delete=models.CASCADE)
+    seat_id = models.IntegerField(verbose_name="座席ID")
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    class Meta:
+        verbose_name = verbose_name_plural = "座席情報"
+
+    def __str__(self):
+        return f"{self.attendance.date}: {self.seat_id}（{self.seat_id}）"
