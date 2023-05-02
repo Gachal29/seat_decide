@@ -1,0 +1,18 @@
+# setup
+- js/libraryにp5.simpleARをcloneする
+    - `$ cd ./js/library`
+    - `$ git clone git@github.com:tetunori/p5.simpleAR.git`
+    - 空のp5.simpleARディレクトリが残っている場合は削除する
+- stylesのビルド
+    - `$ cd ./styles`
+    - `$ npm install`
+    - `$ npm run build`
+- Djangoのインストール
+    - `$ python3.9 -m venv venv`
+    - `$ . venv/bin/activate`
+    - `$ pip install -U pip`
+    - `$ pip install django`
+- runserverの起動
+    - `$ python manage.py migrate`
+    - `$ python manage.py collectstatic`
+    - `$ python manage.py runserver`
