@@ -2,10 +2,67 @@
 {% load static %}
 
 {% block main %}
-<main></main>
+<div class="m-4">
+    <form class="flex items-center">
+        <div class="mr-16">
+            <h3 class="text-3xl font-bold">3年生</h3>
+            {% for member in members_3th %}
+                <div class="text-2xl my-2">
+                    <input
+                        class="checkbox checkbox-primary"
+                        type="checkbox"
+                        id="{{member.user.username}}"
+                        name="{{member.user.username}}"
+                        checked="checked">
+                    <label for="{{member.user.username}}">{{member.user.last_name}} {{member.user.first_name}}</label>
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            <h3 class="text-3xl font-bold">4年生</h3>
+            {% for member in members_4th %}
+            <div class="text-2xl my-2">
+                <input
+                    class="checkbox checkbox-primary"
+                    type="checkbox"
+                    id="{{member.user.username}}"
+                    name="{{member.user.username}}"
+                    checked="checked">
+                <label for="{{member.user.username}}">{{member.user.last_name}} {{member.user.first_name}}</label>
+            </div>
+            {% endfor %}
+        </div>
+
+        <button class="btn btn-primary m-16 text-2xl" type="submit">座席表を作成する</button>
+    </form>
+</div>
+
+<main class="m-4">
+    <h2 class="text-4xl mb-4 font-bold">座席を決める</h2>
+
+    <div class="flex items-center">
+        <div class="mr-4">
+            <div class="form-control">
+                <label class="label cursor-pointer">
+                    <span class="label-text text-xl">編集モード</span> 
+                    <input type="radio" id="edit" name="mode" class="radio checked:bg-blue-500 ml-2" checked />
+                </label>
+            </div>
+            <div class="form-control">
+                <label class="label cursor-pointer">
+                    <span class="label-text text-xl">座席決めモード</span> 
+                    <input type="radio" id="decide" name="mode" class="radio checked:bg-blue-500 ml-2" />
+                </label>
+            </div>
+        </div>
+        <button class="btn btn-success text-xl mx-4" onclick="createTable()">追加</button>
+        <button class="btn btn-info text-xl mx-4" onclick="rotateTable()">回転</button>
+        <button class="btn btn-error text-xl ml-4" onclick="deleteTable()">削除</button>
+    </div>
+</main>
 {% endblock %}
 
 {% block footer %}
 <script src="{% static 'js/library/p5.min.js' %}"></script>
-<script src="{% static 'js/seat_confirmation.js' %}"></script>
+<script src="{% static 'js/seat_decide.js' %}"></script>
 {% endblock %}
